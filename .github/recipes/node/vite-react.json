@@ -1,0 +1,18 @@
+{
+  "name": "Vite + React App",
+  "description": "Creates a new React project using Vite.",
+  "commands": [
+    {
+      "command": "npm create vite@latest {{projectName}} -- --template react-ts",
+      "description": "Scaffold the Vite + React project with TypeScript."
+    },
+    {
+      "command": "cd {{projectName}} && npm install",
+      "description": "Install dependencies."
+    },
+    {
+      "command": "cd {{projectName}} && npm run build",
+      "description": "Verify the project builds successfully."
+    }
+  ]
+}

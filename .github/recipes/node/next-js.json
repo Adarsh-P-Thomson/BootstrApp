@@ -1,0 +1,44 @@
+{
+  "name": "Next.js App",
+  "description": "Creates a new Next.js project using the official 'create-next-app' CLI.",
+  "commands": [
+    {
+      "command": "npx create-next-app@latest {{projectName}}",
+      "description": "Scaffold the Next.js project.",
+      "interactive": [
+        {
+          "prompt": "Would you like to use TypeScript?",
+          "answer": "Yes"
+        },
+        {
+          "prompt": "Would you like to use ESLint?",
+          "answer": "Yes"
+        },
+        {
+          "prompt": "Would you like to use Tailwind CSS?",
+          "answer": "Yes"
+        },
+        {
+          "prompt": "Would you like to use `src/` directory?",
+          "answer": "Yes"
+        },
+        {
+          "prompt": "Would you like to use App Router? (recommended)",
+          "answer": "Yes"
+        },
+        {
+          "prompt": "Would you like to customize the default import alias (@/*)?",
+          "answer": "No"
+        }
+      ]
+    },
+    {
+      "command": "cd {{projectName}} && npm install",
+      "description": "Install dependencies."
+    },
+    {
+      "command": "cd {{projectName}} && npm run build",
+      "description": "Verify the project builds successfully."
+    }
+  ]
+}
