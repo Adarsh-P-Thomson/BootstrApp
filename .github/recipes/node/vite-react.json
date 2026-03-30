@@ -1,10 +1,19 @@
 {
-  "name": "Vite + React App",
-  "description": "Creates a new React project using Vite.",
+  "name": "Vite Application",
+  "description": "Scaffolds a new Vite project. Supports multiple templates natively.",
+  "flags": {
+    "react-ts": "--template react-ts",
+    "react": "--template react",
+    "vue-ts": "--template vue-ts",
+    "vue": "--template vue",
+    "svelte-ts": "--template svelte-ts",
+    "svelte": "--template svelte",
+    "vanilla-ts": "--template vanilla-ts"
+  },
   "commands": [
     {
-      "command": "npx create-vite@latest {{projectName}} --no-interactive --template react-ts",
-      "description": "Scaffold the Vite + React project with TypeScript."
+      "command": "npx create-vite@latest {{projectName}} --no-interactive {{flags}}",
+      "description": "Scaffold the Vite project dynamically."
     },
     {
       "command": "cd {{projectName}} && npm install",

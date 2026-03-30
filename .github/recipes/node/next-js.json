@@ -1,10 +1,20 @@
 {
   "name": "Next.js App",
-  "description": "Creates a new Next.js project. Supports adding Tailwind, TypeScript, ESLint, App Router.",
+  "description": "Creates a new Next.js project dynamically.",
+  "flags": {
+    "typescript": "--ts",
+    "javascript": "--js",
+    "tailwind": "--tailwind",
+    "eslint": "--eslint",
+    "appRouter": "--app",
+    "pagesRouter": "--no-app",
+    "srcDir": "--src-dir",
+    "empty": "--empty"
+  },
   "commands": [
     {
-      "command": "npx create-next-app@latest {{projectName}} --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm",
-      "description": "Scaffold the Next.js project with TypeScript, Tailwind CSS, and App Router without interactive prompts."
+      "command": "npx create-next-app@latest {{projectName}} {{flags}} --use-npm",
+      "description": "Scaffold the Next.js project dynamically using native CLI flags."
     },
     {
       "command": "cd {{projectName}} && npm run build",
