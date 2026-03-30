@@ -3,7 +3,7 @@
   "description": "Creates a new React project using Vite.",
   "commands": [
     {
-      "command": "npm create vite@latest {{projectName}} -- --template react-ts",
+      "command": "npx create-vite@latest {{projectName}} --no-interactive --template react-ts",
       "description": "Scaffold the Vite + React project with TypeScript."
     },
     {
