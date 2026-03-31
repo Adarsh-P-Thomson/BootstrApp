@@ -12,3 +12,6 @@ When BootstrApp is scaffolding or injecting dependencies into a Python project, 
 ## 3. Configuration & Structure
 - **Entry point**: Look for or create a `main.py` or `src/main.py`.
 - **Gitignore**: Always generate a `.gitignore` specifically excluding `__pycache__/`, `.pytest_cache/`, `*.pyc`, and `.env`.
+
+## 4. Scripting & Code Generation
+- **PowerShell Expansion**: When generating `.gitignore` or boilerplate code (`main.py`) via the command line using `Out-File`, NEVER use single quotes (`'...'`) surrounding strings that contain newline characters (`` `n ``). PowerShell evaluates single quotes as strictly literal. ALWAYS use double quotes (`"..."`) to ensure the agent writes valid multi-line output instead of one crashed line of literal text.

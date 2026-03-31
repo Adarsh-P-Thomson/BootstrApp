@@ -1,0 +1,26 @@
+{
+  "name": "Python FastAPI",
+  "description": "Creates a modern, async Python API using FastAPI and Uvicorn.",
+  "flags": {
+    "standard": "fastapi[standard]",
+    "minimal": "fastapi uvicorn"
+  },
+  "commands": [
+    {
+      "command": "New-Item -ItemType Directory -Force -Path {{projectName}} ; cd {{projectName}} ; python -m venv venv",
+      "description": "Create project directory and initialize Python virtual environment."
+    },
+    {
+      "command": "if (Test-Path {{projectName}}) { cd {{projectName}} } ; .\\venv\\Scripts\\Activate.ps1 ; pip install {{flags}} ; pip freeze > requirements.txt",
+      "description": "Activate venv, install FastAPI dynamically (defaulting to standard), and freeze dependencies."
+    },
+    {
+      "command": "if (Test-Path {{projectName}}) { cd {{projectName}} } ; New-Item -ItemType Directory -Force -Path src ; Out-File -FilePath src\\main.py -Encoding utf8 -InputObject \"from fastapi import FastAPI`n`napp = FastAPI()`n`n@app.get('/health')`ndef health_check():`n    return {'status': 'ok'}\"",
+      "description": "Create the src directory and the main application entry point using double quotes so PowerShell expands the `n escape characters."
+    },
+    {
+      "command": "if (Test-Path {{projectName}}) { cd {{projectName}} } ; Out-File -FilePath .gitignore -Encoding utf8 -InputObject \"venv/`n__pycache__/`n.env`n.pytest_cache/\"",
+      "description": "Generate a robust Python .gitignore."
+    }
+  ]
+}

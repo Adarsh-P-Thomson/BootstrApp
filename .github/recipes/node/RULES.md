@@ -19,3 +19,6 @@ If the user asks for generic functionality, recommend these modern defaults:
 - **Styling**: Tailwind CSS
 - **Testing**: Vitest (over Jest, especially for Vite projects)
 - **Fetching**: TanStack Query (React Query) or native fetch.
+
+## 5. Scripting & Code Generation
+- **PowerShell Expansion**: When writing raw code lines to files using PowerShell's `Out-File`, NEVER use single quotes (`'...'`) if the string contains escape characters like newlines (`` `n ``). Single quotes treat everything as raw literal strings. ALWAYS use double quotes (`"..."`) when echoing or outputting multi-line boilerplate so PowerShell correctly expands the breaks.
