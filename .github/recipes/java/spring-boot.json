@@ -1,0 +1,29 @@
+{
+  "name": "Java Spring Boot API",
+  "description": "Scaffolds a modern Spring Boot backend using the Spring Initializr API.",
+  "flags": {
+    "maven": "type=maven-project",
+    "gradle": "type=gradle-project",
+    "java17": "javaVersion=17",
+    "java21": "javaVersion=21",
+    "web": "dependencies=web",
+    "jpa": "dependencies=data-jpa",
+    "hibernate": "dependencies=data-jpa",
+    "h2": "dependencies=h2",
+    "postgres": "dependencies=postgresql"
+  },
+  "commands": [
+    {
+      "command": "New-Item -ItemType Directory -Force -Path {{projectName}} ; cd {{projectName}} ; Invoke-WebRequest -Uri \"https://start.spring.io/starter.zip?name={{projectName}}&artifactId={{projectName}}&{{flags}}\" -OutFile starter.zip",
+      "description": "Create project directory and fetch the configured ZIP payload from Spring Initializr."
+    },
+    {
+      "command": "if (Test-Path {{projectName}}) { cd {{projectName}} } ; Expand-Archive -Path starter.zip -DestinationPath . -Force ; Remove-Item starter.zip",
+      "description": "Unzip the project payload and clean up the artifact."
+    },
+    {
+      "command": "if (Test-Path {{projectName}}) { cd {{projectName}} } ; if (Test-Path mvnw.cmd) { .\\mvnw.cmd clean compile -DskipTests } elseif (Test-Path gradlew.bat) { .\\gradlew.bat classes }",
+      "description": "Validate the Java build using whatever wrapper was downloaded."
+    }
+  ]
+}

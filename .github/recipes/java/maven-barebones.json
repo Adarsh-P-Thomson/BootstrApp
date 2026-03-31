@@ -1,0 +1,26 @@
+{
+  "name": "Java Maven Archetype (Barebones)",
+  "description": "Scaffolds a basic, raw Java project using standard Maven archetypes (no Spring Boot).",
+  "flags": {
+    "jar": "-DarchetypeArtifactId=maven-archetype-quickstart",
+    "war": "-DarchetypeArtifactId=maven-archetype-webapp",
+    "java17": "-Dmaven.compiler.source=17 -Dmaven.compiler.target=17",
+    "java21": "-Dmaven.compiler.source=21 -Dmaven.compiler.target=21"
+  },
+  "interactive": [
+    {
+      "prompt": "What groupId should we use? (e.g., com.mycompany)",
+      "answer": "com.example.app"
+    }
+  ],
+  "commands": [
+    {
+      "command": "mvn archetype:generate {{flags}} -DgroupId={{groupId}} -DartifactId={{projectName}} -DinteractiveMode=false",
+      "description": "Use Maven Archetype to generate the project structure."
+    },
+    {
+      "command": "if (Test-Path {{projectName}}) { cd {{projectName}} ; mvn clean compile }",
+      "description": "Navigate into generated directory and compile to validate."
+    }
+  ]
+}
