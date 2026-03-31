@@ -17,8 +17,8 @@
       "description": "Scaffold the Next.js project dynamically using native CLI flags."
     },
     {
-      "command": "cd {{projectName}} && npm run build",
-      "description": "Verify the project builds successfully."
+      "command": "if (Test-Path {{projectName}}) { cd {{projectName}} ; npm run build } else { npm run build }",
+      "description": "Verify the project builds successfully, handling CWD safely."
     }
   ]
 }

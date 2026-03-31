@@ -16,12 +16,12 @@
       "description": "Scaffold the Vite project dynamically."
     },
     {
-      "command": "cd {{projectName}} && npm install",
-      "description": "Install dependencies."
+      "command": "if (Test-Path {{projectName}}) { cd {{projectName}} ; npm install } else { npm install }",
+      "description": "Install dependencies safely handling CWD."
     },
     {
-      "command": "cd {{projectName}} && npm run build",
-      "description": "Verify the project builds successfully."
+      "command": "npm run build",
+      "description": "Verify the project builds successfully (assuming terminal is already in the project directory)."
     }
   ]
 }
